@@ -20,6 +20,12 @@ public class chooseableoutgoingcalls implements IXposedHookLoadPackage {
 			@Override
 			protected Object replaceHookedMethod(MethodHookParam param) throws Throwable {
 				final Intent intent = new Intent("android.intent.action.VIEW", (Uri)param.args[0]);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				String callOrigin = (String)param.args[1];
+				if (callOrigin != null) {
+					// From com.android.phone.common.PhoneConstants
+					intent.putExtra("com.android.phone.CALL_ORIGIN", callOrigin);
+				}
 				return intent;
 			}
 		});
