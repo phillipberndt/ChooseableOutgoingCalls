@@ -11,9 +11,8 @@ import android.net.Uri;
 
 public class chooseableoutgoingcalls implements IXposedHookLoadPackage {
 	public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
-		
 		if (!lpparam.packageName.equals("com.android.contacts")) {			
-	        return;
+			return;
 		}
 		
 		findAndHookMethod("com.android.contacts.common.CallUtil", lpparam.classLoader, "getCallIntent", Uri.class, String.class, new XC_MethodReplacement() {
