@@ -1,11 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pberndt.ChoosableOutgoingCalls"
     android:versionCode="1"
-    android:versionName="1.2" >
+    android:versionName="1.3" >
 
     <uses-sdk
-        android:minSdkVersion="18"
-        android:targetSdkVersion="20" />
+        android:minSdkVersion="23"
+        android:targetSdkVersion="23" />
 
     <application
         android:allowBackup="true"
